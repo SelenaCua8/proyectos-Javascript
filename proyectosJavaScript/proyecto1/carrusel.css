@@ -1,0 +1,60 @@
+/*GLOBAL STYLES*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   height: 100vh;
+   font-family: 'Montserrat', sans-serif;
+    
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+    gap: 1rem;
+
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: yellowgreen;
+    height: 80vh;
+    border-radius: 50px;
+    flex: 1;
+    position: relative;
+    transition: 0.5s ease-in;
+
+}
+
+.active{
+    flex: 5;
+}
+
+.panel h3{
+    font-size: 2rem;
+    color: white;
+    filter: drop-shadow(5px 5px 10px #000);
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    opacity: 0;
+    /* display: none; misma funcion */
+    
+    
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.5s ease-in 0.3s;
+    /* display: initial; */
+}
+
+
+
+
+
