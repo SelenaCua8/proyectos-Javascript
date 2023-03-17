@@ -1,0 +1,28 @@
+body{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   height: 100vh;
+   font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+   
+}
+
+.container h1{
+    align-self: center;
+    padding: 25px;
+}
+
+.container button{
+    font-size: 10px;
+    width:100px;
+    height:39px;
+    align-self: center;
+    
+}
