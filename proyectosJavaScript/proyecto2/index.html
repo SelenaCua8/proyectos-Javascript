@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>To-do LocalStorage</title>
+</head>
+<body>
+    <main>
+        <h1>To-do list</h1>
+        <section class="add-todo">
+            <form id="add-todo-form">
+                <label for="content"></label>
+                <input type="text"
+                placeholder="e.g Do the thing"
+                name="content"
+                id="content">
+                <input type="submit" value="Add to-do">
+            </form>
+
+        </section>
+        <section class="todo-list">
+            <h3>TO-DO</h3>
+            <div id="todo-list">
+                <div class="todo-item">
+                    
+                   <input value="Hacer el HTML" readonly>
+                   <button class="edit-bu tton">Edit</button>
+                   <button class="delete-button">Delete</button>
+                </div>
+                <div class="todo-item">
+                    <input value="Hacer el CSS" readonly>
+                    <button class="edit-button">Edit</button>
+                   <button class="delete-button">Delete</button>
+                </div>
+                <div class="todo-item">
+                    <input value="Hacer el codigo JS" readonly>
+                    <button class="edit-button">Edit</button>
+                   <button class="delete-button">Delete</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./index.js"></script>
+</body>
+</html>
