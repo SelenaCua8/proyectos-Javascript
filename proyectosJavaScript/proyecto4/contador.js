@@ -3,8 +3,8 @@ const btn = document.querySelector("button"); //llamo al boton a traves de query
 
 let contador = 0;
 
-btn.addEventListener("click",() =>{ 
-    /* console.log("click"); */
+btn.addEventListener("click",() =>{  // desde boton, llamamos al evento click, declaramos una variable como contador y cada vez
+    /* console.log("click"); */       // que se le hace click se le suma ++ un numero 
     contador++;
    parrafo.textContent = contador;
 })
