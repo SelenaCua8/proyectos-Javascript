@@ -33,11 +33,11 @@ body {
     display: flex;
   }
   
-  /* input {
+  .agregar-tarea{
     padding: 15px 10px;
     outline: none;
     width: 400px;
-  } */
+  } 
   
   .li-container {
     background-color: white;
