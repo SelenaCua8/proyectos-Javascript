@@ -122,7 +122,7 @@ function four (){
 function clearColor(){
     topLeft.style.backgroundColor = "darkgreen";
     topRight.style.backgroundColor = "darkred";
-    bottomLeft.style.backgroundColor = "goldenrod";
+    bottomLeft.style.backgroundColor = "goldenred";
     bottomRight.style.backgroundColor = "darkblue";
 }
 
@@ -144,7 +144,7 @@ topLeft.addEventListener("click",(e) =>{
             }, 300);
         }
     }
-});
+})
 topRight.addEventListener("click",(e) =>{
     if (on){
         playerOrder.push(2);
@@ -156,9 +156,9 @@ topRight.addEventListener("click",(e) =>{
             }, 300);
         }
     }
-});
-bottomLeft.addEventListener("click",(e) =>{
-    if (on){
+})
+bottomLeft.addEventListener("click", (e) => {
+    if (on) {
         playerOrder.push(3);
         check();
         three();
@@ -168,7 +168,7 @@ bottomLeft.addEventListener("click",(e) =>{
             }, 300);
         }
     }
-});
+})
 bottomRight.addEventListener("click",(e) =>{
     if (on){
         playerOrder.push(4);
@@ -180,7 +180,7 @@ bottomRight.addEventListener("click",(e) =>{
             }, 300);
         }
     }
-});
+})
 
 
 function check() {
