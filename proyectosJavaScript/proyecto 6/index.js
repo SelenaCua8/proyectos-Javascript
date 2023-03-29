@@ -59,6 +59,11 @@ class Comic extends Book {
     addIllustrator(newIllustrator = []){
         this.illustrators.push(newIllustrator); //para agregar una ilustracion despues
     }
+
+    getAllData(){
+        super.getAllData();
+        console.log(` Illustrador: ${this.illustrators}` );g
+    }
 }
 
 class ShoppingCart {
