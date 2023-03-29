@@ -41,6 +41,10 @@ class Book {   //parecido a una function pero no retorna nada, solo tener variab
         return _private.get(this).properties['_price'] = newPrice;
 
     } //modifica el titulo del libro
+
+    getAllData(){
+        console.log(` Titulo: ${this.title}, Autor: ${this.author}. Precio: ${this.price}` );
+    }
       
 
 
@@ -51,6 +55,35 @@ class Comic extends Book {
         super(name, author, price); //super hace ref a la clase padre
         this.illustrators = illustrators;
     }
+
+    addIllustrator(newIllustrator = []){
+        this.illustrators.push(newIllustrator); //para agregar una ilustracion despues
+    }
+}
+
+class ShoppingCart {
+    constructor() {
+        this.products = [];
+    }
+
+    addProduct(amount, price){
+        this.products.push( ...Array(amount).fill(price) ); //funcion para agregar productos
+
+    }
+
+    showProducts(){
+        console.log(this.products ); // para mostrar los productos
+    }
+
+    calcTotal(){
+        return this.products
+        .map(price => price) //map ejecutar una funcion en cada uno de nuestros productos
+        .reduce((ac, price) => ac + price, 0);
+    }
+
+    printTicket(){
+        console.log(`Total a pagar ${this.calcTotal()}` )
+    }
 }
 //encapsulacion se encagar de ocultar los detalles innecesarios para el exterior
 
@@ -58,7 +91,7 @@ class Comic extends Book {
 const book1 = new Book('1984', 'G.o', 350);
 const book2 = new Book('Frankestein', 'M.S', 200);
 
-const comic1 = new Comic('The killinkg Joke', 'A.M', 150, ['B.B', 'J.H'] );
+const comic1 = new Comic('The killinkg Joke', 'A.M', 150, ['B.B'] );
 
 // console.log(book1._title); 
 // console.log(book1._author);
@@ -68,8 +101,28 @@ const comic1 = new Comic('The killinkg Joke', 'A.M', 150, ['B.B', 'J.H'] );
 // console.log(book2._author);
 // console.log(book2 _price);
 
-console.log(comic1.author);
+/*console.log(comic1.author);
 console.log(comic1.price);
 console.log(comic1.illustrators);
 
- 
+
+comic1.addIllustrator('J.H'); // ahí agrego otro
+
+console.log(comic1.illustrators);*/
+
+
+const cart = new ShoppingCart();
+
+cart.addProduct(2, comic1.price);
+
+cart.addProduct(3, book1.price);
+
+cart.showProducts();
+
+cart.printTicket();
+
+ // polimorfismo capacidad de realizar una misma accion de diferentes formas
+
+
+ book1.getAllData();
+ comic1.getAllData();
