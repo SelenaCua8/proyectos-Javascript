@@ -1,17 +1,28 @@
-import { questions } from './data/Questions.js'
-import {Quiz} from './models/Quiz.js'
-import {UI} from './models/Ui.js'
+//@ts-check
+import { Quiz } from "./models/Quiz.js";
+import { UI } from "./models/UI.js";
+import { questions } from "./data/questions.js";
+
+// Renderring the page
+const renderPage = (quiz, ui) => {
+  if (quiz.isEnded()) {
+    ui.showScores(quiz.score);
+  } else {
+    console.log(quiz);
+    ui.showQuestion(quiz.getQuestionIndex().text);
+    ui.showProgress(quiz.questionIndex + 1, quiz.questions.length);
+    ui.showChoices(quiz.getQuestionIndex().choices, (currenChoice) => {
+      quiz.guess(currenChoice);
+      renderPage(quiz, ui);
+    });
+  }
+};
 
 function main() {
-    const quiz = new Quiz(questions);
-    const ui = new UI();
+  const quiz = new Quiz(questions);
+  const ui = new UI();
 
-    ui.showQuestion(quiz.getQuestionIndex().text);
-    ui.showChoices([quiz.getQuestionIndex().choices])
-
-
-
-     
+  renderPage(quiz, ui);
 }
 
 main();
