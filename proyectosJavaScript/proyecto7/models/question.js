@@ -16,11 +16,11 @@ export class Question {
     //metodos: son funciones
 /**
  * 
- * @param {string} choice some text to guess
+ * @param {string} choices some text to guess
  * @returns {boolean} return true if the answer is correct
  */
-    correctAnswer(choice){
-        return choice === this.answer;
+    correctAnswer(choices){
+        return choices === this.answer;
 
     }
 
