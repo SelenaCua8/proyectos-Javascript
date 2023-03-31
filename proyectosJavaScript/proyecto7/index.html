@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/index.css">
-    <title>JavaScript Quiz</title>
-</head>
-<body>
-    <div id="quiz">
-        <h1>Quiz</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Quiz</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <!-- Quiz Box -->
+    <div id="quiz" class="quiz">
+      <h1>Quiz</h1>
+      <hr />
 
-        <hr>
+      <h1 id="question"></h1>
 
-        <h2 id="question">question</h2>
+      <div id="choices"></div>
 
-        <div id="choices">
-            <button class="button"></button>
-            <button class="button"></button>
-            <button class="button"></button>
-            <button class="button"></button>
-        </div>
+      <hr style="margin-top: 50px" />
 
-        <hr>
-
-        <footer>
-            <p id="progress">Question x of y</p>
-        </footer>
-
+      <footer>
+        <p id="progress">Questions x of y</p>
+      </footer>
     </div>
-    <script type="module" src="./index.js" ></script> <!--module permite poder utilizar portacion de archivos-->
-    
-</body>
+
+    <!-- Scripts -->
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>

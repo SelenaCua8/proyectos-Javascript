@@ -11,21 +11,20 @@ export class Question {
         this.text  = text;
         this.choices = choices; 
         this.answer = answer; 
-    }
+     }
 
     //metodos: son funciones
 /**
  * 
- * @param {string} choices some text to guess
- * @returns {boolean} return true if the answer is correct
- */
-    correctAnswer(choices){
+  * @param {string} choices some text to guess
+  * @returns {boolean} return true if the answer is correct  */
+     correctAnswer(choices){
         return choices === this.answer;
 
-    }
+   }
 
 
-}
+} 
 
 
 
