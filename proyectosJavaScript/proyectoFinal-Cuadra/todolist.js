@@ -1,5 +1,3 @@
-
-
 // Utilizando SweetAlert 
 (async () => {
 
@@ -10,7 +8,7 @@
       inputPlaceholder:
         'Estoy de acuerdo con los terminos y condiciones',
       confirmButtonText:
-        'Continue <i class="fa fa-arrow-right"></i>',
+        'Continue <i class="fa fa-arrow-right"></i>',
       inputValidator: (result) => {
         return !result && 'Necesitas aceptar para poder seguir'
       }
@@ -23,62 +21,84 @@
     })();
 
 
+const input = document.querySelector('.input-btn input');
+const listTasks = document.querySelector('.list-tasks ul');
+const message = document.querySelector('.list-tasks');
+let tasks = [];
 
-
-
-//EMPIEZA TO DO LIST
-const input = document.querySelector('input');
-const addBtn = document.querySelector('.btn-add');
-const ul = document.querySelector('ul');
-const empty = document.querySelector('.empty');
-const span = document.querySelector('span');
-
-
- 
-
-addBtn.addEventListener("click",(e) =>{  
-    e.preventDefault(); //Hago q no se recargue la pagina
-
-    const text = input.value; //esto cuando se pique el + va a aggarar el valor q esta en el input y va a guardarlo
-
-    if(text !== ''){
-        const li = document.createElement('li');
-    const p = document.createElement('p');
-    p.textContent = text;
-
-    li.appendChild(p);
-    li.appendChild(addDeleteBtn());
-    ul.appendChild(li);
-
-    input.value = ""; // cada vez q quiero agregar una tarea se pone en blanco el input para q no haya q borrarlo
-    empty.style.display = "none";
-
-    }
-
-    
-});
-
-function addDeleteBtn (){
-    const deleteBtn = document.createElement('button');
-
-    deleteBtn.textContent = "X";
-    deleteBtn.claaName = "btn-delete"; //quita la clase q tiene y le deja esta
-
-    deleteBtn.addEventListener('click', (e) =>{
-        const item = e.target.parentElement; // se refiere al boton 
-        ul.removeChild(item);
-
-        const items = document.querySelectorAll('li');
-        
-        if(items.length === 0){
-        empty.style.display = "block";
-        }
-
-
-
+eventListeners();
+function eventListeners(){
+    document.addEventListener('DOMContentLoaded', () => {
+        tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        createHTML();
     });
-    return deleteBtn;
+
+    listTasks.addEventListener('click', deleteTask);
 }
 
+function deleteTask(e){
+    if (e.target.tagName == 'SPAN') {
+        const deleteId = parseInt(e.target.getAttribute('task-id'));
+        tasks = tasks.filter(task => task.id !== deleteId);
+        createHTML();
+    }
+}
+
+function deleteAll(){
+    tasks = [];
+    createHTML();
+}
+
+function addTasks(){
+    const task = input.value;
+    if (task === '') {
+        showError('The field is empty...');
+        return;
+    }
+
+    const taskObj = {
+        task,
+        id: Date.now()
+    }
+    tasks = [...tasks, taskObj]
+
+    createHTML();
+    input.value = '';
+}
+
+function createHTML(){
+    clearHTML();
+
+    if (tasks.length > 0) {
+        tasks.forEach(task => {
+            const li = document.createElement('li');
+            li.innerHTML = `${task.task} <span task-id="${task.id}" >X</span>`;
+
+            listTasks.appendChild(li);
+        });
+    }
+
+    sincronizationStorage();
+}
+
+function sincronizationStorage(){
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function showError(error){
+    const messageError = document.createElement('p');
+    messageError.textContent = error;
+    messageError.classList.add('error');
+
+    message.appendChild(messageError);
+    setTimeout(() => {
+        messageError.remove();
+    },2000);
+
+}
+
+function clearHTML(){
+    listTasks.innerHTML = '';
+}
 
 
