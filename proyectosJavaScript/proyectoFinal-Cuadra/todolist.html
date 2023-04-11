@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>ToDo List - LocalStorage</title>
     <link rel="stylesheet" href="./todolist.css">
-    <title>Lista de tareas</title>
+    
 </head>
 <body>
-    <div class="container">
-        <h1>LISTA DE TAREAS</h1>
-        <div class="search">
-            
-            <div class="li-container">
-                <ul>
-
-                </ul>
-            </div>
-            <form action="">
-                <input type="text" placeholder="Agregar tarea.." class="agregar-tarea">
-                <button class="btn-add">+</button>
-            </form>
-            <div class="empty">
-                <p>No tienes tareas pendientes.</p>
-            </div>
-
+    <div class="section-todo-list">
+        <h2>Lista de tareas</h2>
+        <div class="input-btn">
+            <input type="text">
+            <button onclick="addTasks()">Add Task</button>
         </div>
-
+        <div class="list-tasks">
+            <ul>
+                <!-- <li>name of task more content <span>X</span></li>
+                <li>name of task more content <span>X</span></li>
+                <li>name of task more content <span>X</span></li>
+                <li>name of task more content <span>X</span></li> -->
+            </ul>
+        </div>
+        <button class="remove-all" onclick="deleteAll()">Remove all</button>
     </div>
+    <footer>
+        <p class="author">🪐 by <a href="https://github.com/SelenaCua8" target="_blank">Selena</a></p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="./todolist.js"></script>
-   
+    <script src="./todolist.js" defer></script>
 </body>
 </html>
